@@ -12,9 +12,6 @@ _*This repository serves as my personal storage and practice space for the Front
 
 
 
-
-
-
 <!-- ## [Advanced Git In-Depth](https://frontendmasters.com/courses/git-in-depth/)
 
 The accompanying exercises for [Nina Zakharenko's](https://twitter.com/nnja) [Git In-Depth Video Workshop](https://frontendmasters.com/courses/git-in-depth/) on Frontend Masters.
