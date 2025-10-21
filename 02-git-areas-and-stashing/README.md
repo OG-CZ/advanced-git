@@ -1,0 +1,1 @@
+# Git Areas and Stashing
