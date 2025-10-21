@@ -69,7 +69,7 @@ binary large object - its simply a content of a fle
     - \0 delimeter
     - content
     
-    ![image.png](/README/01.png)
+    ![image.png](./README/01.png)
     
 
 ```bash
@@ -78,9 +78,9 @@ echo -e 'blob 14\0Hello, World!' | openssl sha1
 
 ### under the hood - git hash - object
 
-![image.png](/README/02.png)
+![image.png](./README/02.png)
 
-![image.png](/README/03.png)
+![image.png](./README/03.png)
 
 for windows:
 
@@ -88,14 +88,14 @@ for windows:
 
 - it stores it in the **.git** directory
     
-    ![image.png](/README/03.png)
+    ![image.png](./README/03.png)
     
 
 ### where are blobs stored?
 
 -w flags means right
 
-![image.png](/README/04.png)
+![image.png](./README/04.png)
 
 ### we need something else
 
@@ -109,7 +109,7 @@ well, Git stores information in something called as a tree
 
 ### tree
 
-![image.png](/README/05.png)
+![image.png](./README/05.png)
 
 its basically a directory it records which files (blobs), which subfolders(trees) exist and their metadata
 
@@ -124,11 +124,11 @@ and metadata:
 - filename or directory name
 - mode (executable file, symbolic link, …)
 
-![image.png](/README/06.png)
+![image.png](./README/06.png)
 
 ### Identical content is only stored once!
 
-![image.png](/README/07.png)
+![image.png](./README/07.png)
 
 ### other optimizations - packfiles, deltas
 
@@ -156,27 +156,27 @@ and contains metadata:
 
 The SHA1 of the commit is hte hash of all this information
 
-![image.png](/README/08.png)
+![image.png](./README/08.png)
 
 ### commit points to parent commits and trees
 
-![image.png](/README/09.png)
+![image.png](./README/09.png)
 
 A **commit** in Git is a **snapshot of your entire project’s state** (all files and folders) at a specific moment in time
 
 ### commits under the hood - make a commit
 
-![image.png](/README/10.png)
+![image.png](./README/10.png)
 
 ### commits under the hood - look in .git/objects
 
-![image.png](/README/11.png)
+![image.png](./README/11.png)
 
 ### git cat-file -t (type) and -p (print the contents)
 
-![image.png](/README/12.png)
+![image.png](./README/12.png)
 
-![image.png](/README/13.png)
+![image.png](./README/13.png)
 
 - 581caa → That’s actually a **prefix** (short version) of a **full SHA-1 hash, its fine shorter as long its unique**
 
@@ -185,7 +185,7 @@ if we print the contents of that we get here
 - 100644 → this is mode it says if its executable
 - blob → stored in the tree which points to hello.txt
 
-![image.png](/README/15.png)
+![image.png](./README/15.png)
 
 ### why cant we “change” commits?
 
@@ -198,14 +198,14 @@ if we print the contents of that we get here
 - branches
 - HEAD - a pointer to the current commit
     
-    ![image.png](/README/16.png)
+    ![image.png](./README/16.png)
     
 
 thats why its fast to switch branches is just changing pointer
 
 ### references - under the hood
 
-![image.png](/README/17.png)
+![image.png](./README/17.png)
 
 
 ## EXERCISE
