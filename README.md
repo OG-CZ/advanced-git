@@ -2,6 +2,8 @@
 
 [Advanced Git In-Depth](https://frontendmasters.com/courses/git-in-depth/)
 
+- [Git Foundations](./git-foundations/README.md)
+
 _*This repository serves as my personal storage and practice space for the Frontend Master’s Advanced Git In Depth. All problem sets, exercises, and experiments related to the course will be stored here*_
 
 
