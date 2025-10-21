@@ -3,6 +3,7 @@
 [Advanced Git In-Depth](https://frontendmasters.com/courses/git-in-depth/)
 
 - [Git Foundations - Git, Blobs and Trees, Commits](./01-git-foundations/README.md)
+- [Git Areas and Stashing - Working Area, Staging Area, Repository](./02-git-areas-&-stashing/README.md)
 
 _*This repository serves as my personal storage and practice space for the Frontend Master’s Advanced Git In Depth. All problem sets, exercises, and experiments related to the course will be stored here*_
 
