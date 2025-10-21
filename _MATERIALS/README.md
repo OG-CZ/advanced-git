@@ -1,6 +1,6 @@
 ## [Advanced Git In-Depth](https://frontendmasters.com/courses/git-in-depth/)
 
-The accompanying exercises for [Nina Zakharenko's](https://twitter.com/nnja) [Git In-Depth Video Workshop](https://frontendmasters.com/courses/git-in-depth/) on Frontend Masters.
+The accompanying exercises for [Git In-Depth Video Workshop](https://frontendmasters.com/courses/git-in-depth/) on Frontend Masters.
 
 ![](images/git-in-depth.png)
 
@@ -27,16 +27,4 @@ By coding along with us in this workshop you’ll:
  - Discover lesser-known features of git that will save you hours of time when resolving merge conflicts and track down bugs…
  - Learn how to harness the power of the GitHub API to fetch information about your repositories.
 
-## Author and Class Information
-
-The course content and exercises were written by Nina Zakharenko.
-
-Find her on:
-- [Twitter @nnja](https://twitter.com/nnja)
-- [LinkedIn](https://www.linkedin.com/in/ninaz/)
-- [GitHub](https://github.com/nnja)
-
-## Video Course
-
-Front End Masters [Video screencast](http://frontendmasters.com/workshops/git-indepth/)
 
