@@ -1,10 +1,13 @@
 # Advanced Git
+
 ## Exercise Two - Staging and Stashing
 
 ### Overview
+
 In this exercise, we'll take a quick look at interactive staging, unstaging files, and stashing uncommitted changes.
 
 ### Prerequisite
+
 Clone the `advanced-git-exercises` repository from [github.com/nnja/advanced-git-exercises](https://github.com/nnja/advanced-git-exercises).
 Then, checkout the `exercise2` tag to set things up for the following exercise.
 
@@ -23,6 +26,7 @@ Switched to branch 'exercise2'
 ```
 
 ### Exercise
+
 1. Use `git ls-files -s` to view the contents of the staging area.
 2. Make a change and try to stage it interactively (`git add -p`).
 3. Use `git reset` to undo the staging of your file.
@@ -41,8 +45,8 @@ $> git ls-files -s
 100644 980a0d5f19a64b4b30a87d4206aade58726b60e3 0	hello.txt
 ```
 
-
 ### Step 2 - Interactive Staging
+
 Make a change to your `hello.txt` file, then use `git add -p` to stage your change interactively. The following is a simple example with only one change to commit. With multiple edits to a code file, for example, git will intelligently break up the changes into "hunks." Git will then display sequentially and ask you whether or not you want to stage each hunk.
 
 ```
@@ -58,6 +62,7 @@ index 980a0d5..b31a35b 100644
 +This is a test of the emergency git-casting system.
 Stage this hunk [y,n,q,a,d,/,e,?]?
 ```
+
 If you type `?` and press `enter` after `Stage this hunk`, git will explain the shortcut keys:
 
 ```
@@ -100,8 +105,8 @@ $> git ls-files -s
 You'll see that the SHA1 of `hello.txt` has changed. It _was_ `980a0` and it's now `b31a3`.
 This mechanism is how git knows that the contents of the staging area have changed.
 
-
 ### Step 3 - Unstage your Change
+
 Say you made a mistake while staging your changes and want to start the staging process over, but without losing the changes to your file. Use `git reset` to remove the files from the staging area, without changing the file in the working area. Use `git status` to see that our modifications to `hello.txt` are still there, but they're no longer staged for commit.
 
 ```
@@ -124,6 +129,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 The changes to `hello.txt` are still present in the working area, but they were removed from the staging area before being committed to the repository.
 
 ### Step 4 - Stash your Changes
+
 Use `git stash` to stash your uncommitted changes. You can unstash these changes later, when you're ready to commit them. It's a good idea to use `git stash save` with a message; this helps you remember what's what if you stash multiple changes.
 
 Then use `git status` to check the status of your working area.
