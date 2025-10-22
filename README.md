@@ -6,7 +6,7 @@
 - [Git Areas and Stashing - Working Area, Staging Area, Repository](./02-git-areas-and-stashing/README.md)
 - [Git References - Tags, Dangling Commit, Detached HEAD](./03-references-commits-branches/README.md)
 
-  _*This repository serves as my personal storage and practice space for the Frontend Master’s Advanced Git In Depth. All problem sets, exercises, and experiments related to the course will be stored here*_
+_*This repository serves as my personal storage and practice space for the Frontend Master’s Advanced Git In Depth. All problem sets, exercises, and experiments related to the course will be stored here*_
 
 <!-- ## [Advanced Git In-Depth](https://frontendmasters.com/courses/git-in-depth/)
 
