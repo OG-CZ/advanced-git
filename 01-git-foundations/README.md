@@ -21,8 +21,9 @@
   - [why cant we “change” commits?](#why-cant-we-change-commits)
   - [references - pointers to commits](#references---pointers-to-commits)
   - [references - under the hood](#references---under-the-hood)
-- [EXERCISE](#exercise)
-- [Commands Exercise](#commands-exercise)
+- [GIT CORE LOGIC](#git-core-logic)
+  - [EXERCISE](#exercise)
+- [COMMAND SUMMARY](#command-summary)
   - [Basic Setup](#basic-setup)
   - [Explore Objects](#explore-objects)
   - [Check References](#check-references)
@@ -48,14 +49,12 @@ distributed version control system
 - Is a cryptographic hash function
 - given a piece of data, it produces a 40-digit hexadecimal number
 - this value should always be the same if the given input is the same
-    
-    They’re used in:
-    
-    - Git (for commit and file IDs)
-    - Password verification
-    - Digital signatures
-    - File integrity checks
-    - Network security (SSL/TLS, etc.)
+  They’re used in:
+  - Git (for commit and file IDs)
+  - Password verification
+  - Digital signatures
+  - File integrity checks
+  - Network security (SSL/TLS, etc.)
 
 ## GIT BLOBS AND TREES
 
@@ -64,13 +63,11 @@ distributed version control system
 binary large object - its simply a content of a fle
 
 - git stores the **compressed** data in a blob, along with the metadata in a header:
-    - the identifier **blob**
-    - the size of the content
-    - \0 delimeter
-    - content
-    
+  - the identifier **blob**
+  - the size of the content
+  - \0 delimeter
+  - content
     ![image.png](./README/01.png)
-    
 
 ```bash
 echo -e 'blob 14\0Hello, World!' | openssl sha1
@@ -87,9 +84,7 @@ for windows:
 ### where does git store its data?
 
 - it stores it in the **.git** directory
-    
-    ![image.png](./README/03.png)
-    
+  ![image.png](./README/03.png)
 
 ### where are blobs stored?
 
@@ -100,8 +95,8 @@ for windows:
 ### we need something else
 
 - blob is missing information!
-    - filenames
-    - directory structures
+  - filenames
+  - directory structures
 
 if we save a file as a blob, how do we know what that file is aclled and what directory
 
@@ -137,7 +132,7 @@ and metadata:
 - git optimizes for this by compressing these files together, into a Packfile
 - the packfile stores the object, and “deltas”, or the differences between one version of the file and next
 - Packfiles are generated when:
-    - you have to many objects, during gc, or during a push to remote
+  - you have to many objects, during gc, or during a push to remote
 
 ## GIT COMMITS
 
@@ -180,7 +175,7 @@ A **commit** in Git is a **snapshot of your entire project’s state** (all file
 
 - 581caa → That’s actually a **prefix** (short version) of a **full SHA-1 hash, its fine shorter as long its unique**
 
-if we print the contents of that we get here 
+if we print the contents of that we get here
 
 - 100644 → this is mode it says if its executable
 - blob → stored in the tree which points to hello.txt
@@ -197,9 +192,7 @@ if we print the contents of that we get here
 - tags
 - branches
 - HEAD - a pointer to the current commit
-    
-    ![image.png](./README/16.png)
-    
+  ![image.png](./README/16.png)
 
 thats why its fast to switch branches is just changing pointer
 
@@ -207,8 +200,41 @@ thats why its fast to switch branches is just changing pointer
 
 ![image.png](./README/17.png)
 
+## GIT CORE LOGIC
 
-## EXERCISE
+The big picture Git in simple words
+
+1. **`.git/objects/`**
+   - This is where Git stores _everything you’ve ever committed_.
+   - Each commit, file, and folder snapshot is saved as a **Git object** (blob, tree, or commit).
+   - These objects are named and identified by their **SHA-1 hashes**.
+   - So yes these objects **contain all your code and history**, compressed and tracked forever.
+2. **`.git/refs/heads/`**
+   - Each file here (like `main`, `feature-x`) represents a **branch**.
+   - It stores the **SHA-1** of the **latest commit** in that branch.
+3. **`HEAD`**
+   - Points to the branch you’re _currently on_.
+   - Example: `ref: refs/heads/main` means “I’m on the `main` branch.”
+   - If you checkout another branch, HEAD moves to point to that branch instead.
+4. **Branch switching & timeline**
+   - When you switch branches, Git looks at the **SHA-1** that branch points to.
+   - From that SHA-1, it loads the correct **commit object** → **tree** → **blobs**
+     (which reconstruct the exact version of your files for that branch).
+   - In short, Git “picks and arranges the proper thing” based on those hashes.
+
+**Final simple summary:**
+
+> Git is a content-addressed system where all your code and history are stored as objects (the real data), and SHA-1 hashes act as their addresses; branches and HEAD are just pointers that tell Git which commit (and therefore which version of your code) to show you.
+
+**Git Core Building Blocks**
+| Concept | What it is | What it does | Example |
+| ------------------------ | -------------------- | ------------------------------------------------ | ------------------------- |
+| 🗂️ **Objects** | Actual data storage | Holds everything (files, trees, commits) | Stored in `.git/objects/` |
+| 🔑 **SHA-1 (Hash)** | Unique key / address | Points to a specific object’s content | `a3c4f5...` |
+| 🧭 **References (Refs)** | Named pointers | Point to the _latest commit_ of branches or tags | `.git/refs/heads/main` |
+| 🎯 **HEAD** | Active pointer | Points to the branch you’re currently on | `ref: refs/heads/main` |
+
+### EXERCISE
 
 1.) configure your editor
 
@@ -227,7 +253,7 @@ vscode: code --wait
 Run: $ $ git config --global core.editor <YOUR_EDITOR>
 ```
 
-2.) complete exercise 
+2.) complete exercise
 
 https://github.com/OG-CZ/advanced-git/blob/main/_EXERCISES/Exercise01-SimpleCommit.md
 
@@ -242,7 +268,7 @@ Tips for using `less` on the command line.
 
 **To search:**
 
-- /<*query*>
+- /<_query_>
 - n = next match
 - p = previous match
 
@@ -254,8 +280,7 @@ If you really want to deep dive, check out the man (a.k.a manual) page for [les
 
 https://linux.die.net/man/1/less
 
-
-## Commands Exercise
+## COMMAND SUMMARY
 
 ### Basic Setup
 

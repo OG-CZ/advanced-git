@@ -21,7 +21,7 @@
     - [advanced stashing - cleaning the stash](#advanced-stashing---cleaning-the-stash)
     - [examining stash contents - git show](#examining-stash-contents---git-show)
     - [git stash - what she use?](#git-stash---what-she-use)
-  - [COMMAND SUMMARY](#command-summary)
+- [COMMAND SUMMARY](#command-summary)
 
 # Working Area, Staging Area, Repository
 
@@ -193,22 +193,52 @@ name stashes for easy reference
   lets you **interactively choose which changes (hunks)** to stash
 - git stash -p
 
-## COMMAND SUMMARY
+# COMMAND SUMMARY
 
-| Action                  | Command                         |
-| ----------------------- | ------------------------------- |
-| Add file to staging     | `git add <file>`                |
-| Add changes by patch    | `git add -p`                    |
-| Delete file             | `git rm <file>`                 |
-| Rename file             | `git mv <file>`                 |
-| Unstage file            | `git restore --staged <file>`   |
-| Stash changes           | `git stash`                     |
-| List stashes            | `git stash list`                |
-| Show stash contents     | `git stash show stash@{0}`      |
-| Apply last stash        | `git stash apply`               |
-| Apply specific stash    | `git stash apply stash@{n}`     |
-| Apply and remove stash  | `git stash pop`                 |
-| Save stash with message | `git stash save "message"`      |
-| Keep untracked files    | `git stash --include-untracked` |
-| Clear all stashes       | `git stash clear`               |
-| Drop specific stash     | `git stash drop stash@{n}`      |
+### Working Area
+
+- Files you’re currently editing — not yet tracked or staged.
+
+### Staging Area (Index / Cache)
+
+- Where Git tracks what will be in your next commit.
+
+### Repository
+
+- Stored inside `.git/`, contains all commits and history.
+
+### Staging & File Management
+
+- `git add <file>` — stage file for next commit
+- `git add -p` — stage patches interactively
+- `git rm <file>` — remove file in next commit
+- `git mv <old> <new>` — rename tracked file
+- `git restore --staged <file>` — unstage file (keep in working directory)
+
+### Basic Stashing
+
+- `git stash` — stash current tracked changes
+- `git stash list` — show all stashed items
+- `git stash show stash@{0}` — view summary of a stash
+- `git stash apply` — apply latest stash
+- `git stash apply stash@{n}` — apply specific stash
+
+### Advanced Stashing Options
+
+- `git stash --include-untracked` — stash tracked + untracked files
+- `git stash --all` — stash all (even ignored) files
+- `git stash save "WIP: message"` — name your stash for easy reference
+- `git stash branch <branch-name> [stash@{n}]` — create new branch from stash
+- `git checkout stash@{n} -- <filename>` — restore specific file from stash
+
+### Cleaning Up the Stash
+
+- `git stash pop` — apply & remove last stash
+- `git stash drop` — delete latest stash only
+- `git stash drop stash@{n}` — delete specific stash
+- `git stash clear` — remove all stashes
+
+### Examining Stash Contents
+
+- `git show stash@{0}` — show full diff of a stash
+- `git stash -p` — interactively choose hunks to stash
