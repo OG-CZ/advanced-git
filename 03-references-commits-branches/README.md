@@ -16,7 +16,7 @@
   - [DETACHED HEAD & DANGLING COMMITS](#detached-head--dangling-commits)
     - [head-less / detached head](#head-less--detached-head)
     - [dangling commits](#dangling-commits)
-  - [COMMAND SUMMARY](#command-summary)
+- [COMMAND SUMMARY](#command-summary)
 
 ## References
 
