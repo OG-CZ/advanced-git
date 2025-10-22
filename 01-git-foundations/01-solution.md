@@ -2,26 +2,42 @@
 
 Create a new sample project folder. Run git status to see that it is not yet a git repository. Use git init to initialize it as a repository.
 
-1.) mkdir -p ~folder/location/...
-2.) cd ~folder/location/...
-3.) git status
-4.) git init -> create a new Git repository
+```bash
+1. mkdir -p ~/projects/git-foundations          # create a folder for the project
+2. cd ~/projects/git-foundations                # navigate into the folder
+
+3. git status                                   # check repo status (not yet a git repo)
+fatal: not a git repository (or any of the parent directories): .git
+
+4. git init                                     # initialize as a new Git repository
+Initialized empty Git repository in /Users/og-cz/projects/git-foundations/.git/
+
+```
 
 ### Step 2 - First Commit
 
 Create a new document, stage it for a commit, then commit it to your repository.
 
-5.) echo 'hello, world!' > hello.txt -> create a text file with sample content
-6.) git add hello.txt -> add the file to the staging area
-7.) git commit -m "message here"
+```bash
+5. echo 'hello, world!' > hello.txt             # create a sample text file
+
+6. git add hello.txt                            # add file to staging area
+
+7. git commit -m "Initial commit"               # commit the staged file
+[main (root-commit) 43388fe] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+
+```
 
 ### Step 3 - View the .git Folder
 
-4.) tree .git/objects -> list all object folders (Windows CMD)
- or
- ls -R .git/objects -> list all object folders (Git Bash / macOS / Linux)
+```bash
+4.)
+tree .git/objects   # -> list all object folders (Windows CMD)
+# or
+ls -R .git/objects  # -> list all object folders (Git Bash / macOS / Linux)
 
-```json
 $> tree .git
 .git
 ├── COMMIT_EDITMSG
@@ -40,47 +56,58 @@ $> tree .git
 
 ### Step 4 - Inspect the Objects
 
-5.) git cat-file -t <hash> -> show the type of a Git object (e.g., blob, tree, commit)
+Inspect what’s inside .git/objects. You’ll find three object types:
 
-6.) git cat-file -p <hash> -> display the contents of a Git object
+- blob – stores file contents
+- tree – stores directory structure
+- commit – stores metadata + references
 
-for example:
+```bash
 
-```json
+# One of the objects should be a tree object. The tree contains the filename hello.txt and a pointer to the blob.
 
-One of the objects should be a tree object. The tree contains the filename hello.txt and a pointer to the blob.
-
-$> git cat-file -t 581caa
+9. git cat-file -t 581caa                       # check object type
 tree
 
-$> git cat-file -p 581caa
+10. git cat-file -p 581caa                      # view tree contents
 100644 blob 980a0d5f19a64b4b30a87d4206aade58726b60e3	hello.txt
-The blob object, pointed to by the tree, contains the contents of the file hello.txt
+# shows a single file hello.txt and its blob hash
 
-$> git cat-file -t 980a0d5
+11. git cat-file -t 980a0d5                     # check blob type
 blob
 
-$> git cat-file -p 980a0d5
-Hello World!
-The commit object contains a pointer to the tree, along with metadata for the commit, such as the author and commit message.
+12. git cat-file -p 980a0d5                     # view blob content
+hello, world!                                   # actual content of hello.txt
 
-$> git cat-file -t 43388f
+13. git cat-file -t 43388f                      # check commit type
 commit
 
-$> git cat-file -p 43388f
+14. git cat-file -p 43388f                      # view commit metadata and message
 tree 581caa0fe56cf01dc028cc0b089d364993e046b6
-author Nina Zakharenko <nina@nnja.io> 1507168309 -0700
-committer Nina Zakharenko <nina@nnja.io> 1507168309 -0700
+author og-cz <secret@noreply.github.com> 1736500819 +0800
+committer og-cz <secret@noreply.github.com> 1736500819 +0800
 
-Initial commit
+Initial commit                                  # commit message
 ```
 
 ### Step 5 - Look at refs
 
-7.) cat .git/HEAD -> view which branch HEAD is pointing to
+Check what branch and commit your HEAD is pointing to.
 
-8.) cat .git/refs/heads/main -> see the latest commit hash stored in your branch
+```bash
+15. cat .git/HEAD                               # shows which branch HEAD points to
+ref: refs/heads/main
 
-9.) git --no-pager log --oneline -> display a compact view of commit history
+16. cat .git/refs/heads/main                    # shows the latest commit hash for 'main'
+43388fee19744e8893467331d7853a6475a227b8
 
-10.) ls -R .git/refs - show all branch, remote, and tag references
+17. git --no-pager log --oneline                # compact commit history view
+43388fe (HEAD -> main) Initial commit
+
+18. ls -R .git/refs                             # show all branch, remote, and tag refs
+.git/refs:
+heads
+
+.git/refs/heads:
+main
+```

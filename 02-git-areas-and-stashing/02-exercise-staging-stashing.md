@@ -11,7 +11,7 @@ In this exercise, we'll take a quick look at interactive staging, unstaging file
 Clone the `advanced-git-exercises` repository from [github.com/nnja/advanced-git-exercises](https://github.com/nnja/advanced-git-exercises).
 Then, checkout the `exercise2` tag to set things up for the following exercise.
 
-```
+```bash
 $> git clone git@github.com:nnja/advanced-git-exercises.git
 Cloning into 'advanced-git-exercises'...
 remote: Counting objects: 3, done.
