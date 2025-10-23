@@ -200,9 +200,21 @@ CONFLICT (content): Merge conflict in 04-merging-and-rebase/hello.txt
 Resolved '04-merging-and-rebase/hello.txt' using previous resolution.        # git told us even tho it errors it used the RERERE
 Automatic merge failed; fix conflicts and then commit the result.
 
-
 31. cat hello.txt                                                            # the merge content of hello was fast forward testings \n different
 Hello Mundo!                                                                 # but here its Hello Mundo!, so it remembered
 ```
 
 This time, our merge still failed, but the conflict was resolved automatically, per the line that says Resolved 'hello.txt' using previous resolution. There is no need to resolve the conflict manually, as we can see that our hello.txt now correctly says "Hola Mundo!" All we need to do is stage hello.txt and commit it.
+
+```bash
+Asus@og-f15 MINGW64 ~/.../.../.../advanced-git (exercise4|MERGING)           # stil not done to fix this
+32. git add .
+
+Asus@og-f15 MINGW64 ~/Documents/ogcz/_DEV/advanced-git (exercise4|MERGING)
+33. git commit -m "advanced-git"
+[exercise4 f2e659f] advanced-git
+
+
+Asus@og-f15 MINGW64 ~/Documents/ogcz/_DEV/advanced-git (exercise4)           # CONFLICT FIXED !!!
+34. git push origin HEAD
+```
