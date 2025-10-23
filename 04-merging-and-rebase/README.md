@@ -116,19 +116,6 @@ No commits are lost — only the separate feature branch label is removed.
 | `git commit`         | Complete the merge after resolution | Finalizes merge commit after resolving conflicts |
 | `git merge --abort`  | Abort and revert merge state        | Returns to pre-merge condition if unresolved     |
 
-Example conflict marker:
-
-```
-<<<<<<< HEAD
-console.log("Main branch");
-=======
-console.log("Feature branch");
->>>>>>> feature
-
-```
-
----
-
 ### RERERE (Reuse Recorded Resolution)
 
 | Command                                   | Description                           | Example Output / Notes                            |
