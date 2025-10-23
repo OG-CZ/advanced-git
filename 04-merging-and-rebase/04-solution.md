@@ -7,7 +7,9 @@
 
 3. git --no-pager log --oneline             # shows your entire commit history in a short, clean list without opening the pager view.
 
-4. git merge exercise3                      #
+4. git merge exercise3                      # Fast forward will happen if
+                                            # Let’s say you started exercise4 from exercise3, but then added more commits on exercise4
+
 ```
 
 ### Step 2 - Non-Fast-Forward Merge
