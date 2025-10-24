@@ -171,5 +171,4 @@ Let's say you're working on a complicated codebase with a master branch and lots
 14. git branch --no-merged master
   dangling-exercise3
 * exercise5
-
 ```
