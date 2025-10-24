@@ -168,6 +168,8 @@ a3c91d1 i18n another one
 [exercise6 03f7765] Revert "deleting hello.template file for the second itme"
  1 file changed, 1 insertion(+)
  create mode 100644 06-fixing-mistakes/hello.template
+# now its hello.template is back
+
 ```
 
 There, we've successfully brought hello.template back from the dead, and we have a revert commit to show others exactly what happened. Plus, we didn't have to change history, so this is a good method to use if the changes you want to revert have already been pushed to your origin.
